@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FirstScreen-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="FirstScreen" id="BYZ-38-t0r" customClass="FirstScreen" customModule="testSegue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgw-VA-4ch">
+                                <rect key="frame" x="15" y="59" width="384" height="40"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xtP-IU-YKd"/>
+                                </constraints>
+                                <state key="normal" title="ShowSecondScreen">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XXE-Ki-H53" kind="presentation" identifier="showSecondScreen" customClass="FadingSegue" customModule="testSegue" customModuleProvider="target" modalPresentationStyle="fullScreen" id="CdJ-Rk-Wft"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="zgw-VA-4ch" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="2aT-Cp-T53"/>
+                            <constraint firstItem="zgw-VA-4ch" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="FOF-jn-uMR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zgw-VA-4ch" secondAttribute="trailing" constant="15" id="nlP-Wo-LOM"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LtL-nh-ZtD" appends="YES" id="syz-k7-Tx2"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="LtL-nh-ZtD">
+                    <connections>
+                        <segue destination="Rne-su-A4U" kind="presentation" identifier="showThirdScreen" customClass="CustomPushSegue" customModule="testSegue" customModuleProvider="target" modalPresentationStyle="fullScreen" id="TBN-xS-X2N"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="122" y="103"/>
+        </scene>
+        <!--SecondScreen-->
+        <scene sceneID="YVX-21-Zhc">
+            <objects>
+                <viewController title="SecondScreen" id="XXE-Ki-H53" customClass="SecondScreen" customModule="testSegue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Zm-Mv-Vdh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="in8-8l-8Kb"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lVv-8x-shb" appends="YES" id="va3-DL-hma"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="vpO-eZ-ffZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i33-ig-u22" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="sJT-YM-gDo" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="lVv-8x-shb">
+                    <connections>
+                        <segue destination="sJT-YM-gDo" kind="unwind" identifier="hideSecondScreen" customClass="UnwindFadingSegue" customModule="testSegue" customModuleProvider="target" unwindAction="unwindFromSecondScreen:" id="Cwg-BY-AwR"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="877" y="102"/>
+        </scene>
+        <!--ThirdScreen-->
+        <scene sceneID="hje-u9-6hG">
+            <objects>
+                <viewController id="Rne-su-A4U" userLabel="ThirdScreen" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BTe-n3-s8P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JYV-Ak-Dxh"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LAI-2a-37O" appends="YES" id="wf3-SE-eN3"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h5e-8L-FlH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="LAI-2a-37O">
+                    <connections>
+                        <segue destination="V09-WX-aHT" kind="unwind" identifier="hideThirdScreen" customClass="UnwindCustomPushSegue" customModule="testSegue" customModuleProvider="target" unwindAction="unwindFromThirdScreen:" id="yif-We-gzv"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <exit id="V09-WX-aHT" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="782"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
